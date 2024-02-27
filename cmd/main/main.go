@@ -1,16 +1,16 @@
 package main
 
 import (
+	"github.com/BentleyOph/bookstore/pkg/routes"
+	"github.com/gorilla/mux"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"log"
 	"net/http"
-	"github.com/gorilla/mux"
-	"github.com/BentleyOph/bookstore/pkg/routes"
-	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 func main() {
 	r := mux.NewRouter()
 	routes.RegisterBookStoreRoutes(r)
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe(("localhost:8080"), nil)) // Start the server
+	log.Fatal(http.ListenAndServe(("localhost:9000"), nil)) // Start the server
 }
